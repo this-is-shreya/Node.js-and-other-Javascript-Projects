@@ -5,6 +5,14 @@ const io = socket(server)
 const mongoose = require("mongoose")
 const bodyParser = require("body-parser")
 const customId = require("custom-id")
+app.use(bodyParser.urlencoded({extended:true}))
+
+mongoose.connect("mongodb://127.0.0.1:27017/mongo_practice",
+ {useNewUrlParser:true,
+useUnifiedTopology:true,
+useFindAndModify:false})
+
+app.set("view engine","ejs")
 
 //CHAT SCHEMA
 const chat_schema = mongoose.Schema({
